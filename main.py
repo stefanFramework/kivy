@@ -18,9 +18,6 @@ class GameWidget(Widget):
     RIGHT_KEY_CODE = 275
     SPACE_BAR_KEY_CODE = 32
 
-    # PLAYER_VELOCITY = 2
-    # GRAVITY = -2
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -52,8 +49,6 @@ class GameWidget(Widget):
 
         Clock.schedule_interval(self.update, Config.LEVEL_UPDATE_TIME_INTERVAL)
 
-        # self.sound = SoundLoader.load('assets/sounds/background_main.wav')
-        # self.sound.play()
 
     def _on_keyboard_closed(self):
         self._keyboard.unbind(on_key_down=self._on_key_down)
@@ -82,7 +77,6 @@ class GameWidget(Widget):
             current_x += step_size
 
         if self.SPACE_BAR_KEY_CODE in self.keys_pressed: 
-            # current_x = current_x + step_size
             current_y = current_y + (step_size * 10)
 
         self.player.update_position(current_x, current_y)
